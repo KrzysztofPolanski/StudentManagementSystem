@@ -1,0 +1,2 @@
+# StudentManagementSystem
+Projekt na studia
