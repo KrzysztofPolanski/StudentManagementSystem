@@ -21,4 +21,11 @@ public static void main(String[] args) {
     for (Student student : studentDAO.getAllStudents()) {
         student.displayInfo();
     }
+    // Test usuwania studenta
+    studentDAO.removeStudent("5002"); // Podaj ID studenta do usunięcia
+    System.out.println("Lista studentów po usunięciu:");
+    for (Student student : studentDAO.getAllStudents()) {
+        student.displayInfo();
+    }
+
 }

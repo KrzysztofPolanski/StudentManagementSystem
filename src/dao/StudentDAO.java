@@ -51,4 +51,21 @@ public class StudentDAO {
 
         return students;
     }
+    // Nowa metoda: removeStudent
+    public void removeStudent(String studentID) {
+        String sql = "DELETE FROM students WHERE id = ?";
+        try (Connection connection = DriverManager.getConnection(URL);
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setString(1, studentID);
+            int rowsAffected = statement.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("Student został usunięty z bazy danych.");
+            } else {
+                System.out.println("Nie znaleziono studenta o podanym ID.");
+            }
+        } catch (SQLException e) {
+            System.out.println("Błąd podczas usuwania studenta: " + e.getMessage());
+        }
+    }
 }
